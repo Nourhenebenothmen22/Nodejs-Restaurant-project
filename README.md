@@ -59,12 +59,12 @@ Installer les dépendances :
 npm install
 
 Configurer l’environnement : .env
-Modifier .env avec vos valeurs :
+Modifier .env avec les valeurs :
 
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/restaurant-db
-JWT_SECRET=votre_super_secret_complexe
-JWT_EXPIRES_IN=1h
+ PORT=5000
+ MONGO_ENV=mongodb+srv://benothmennourhen8:SjQ71m4Fii0OCxPw@cluster0.awoz3hx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+ JWT_SECRET=mysecretvalue
+ JWT_EXPIRES_IN = 1h
 
 Démarrer le serveur :
 npm start
