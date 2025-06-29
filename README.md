@@ -66,7 +66,7 @@ Postman (ou tout outil API)
 
 1. Cloner le dépôt
 
-git clone https://github.com/votre-utilisateur/restaurant-api.git
+https://github.com/Nourhenebenothmen22/Nodejs-Restaurant-project/tree/main
 cd restaurant-api
 
 2. Installer les dépendances
