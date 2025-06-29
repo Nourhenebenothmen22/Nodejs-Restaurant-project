@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const helmet = require('helmet');
 const colors=require('colors')
 const cors=require('cors')
 const morgan=require('morgan')
@@ -14,6 +15,7 @@ require('dotenv').config();
 connectDB();
 
 app.use(cors())
+app.use(helmet()); // 🛡️ Active automatiquement plusieurs protections HTTP
 app.use(express.json())
 app.set('view engine', 'ejs');
 //routing path
