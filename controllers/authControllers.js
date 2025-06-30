@@ -112,8 +112,49 @@ const loginController = async (req, res) => {
     });
   }
 };
+const ResetPasswordController = async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+
+    // Vérifier les champs
+    if (!email || !newPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and new password are required"
+      });
+    }
+
+    // Rechercher l'utilisateur
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found with this email"
+      });
+    }
+
+    // Hacher le nouveau mot de passe
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password has been reset successfully"
+    });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Error in password reset API.",
+      error: error.message
+    });
+  }
+};
 
 module.exports = {
   registerController,
   loginController,
+ ResetPasswordController
 };
