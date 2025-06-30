@@ -152,9 +152,58 @@ const ResetPasswordController = async (req, res) => {
     });
   }
 };
+const ForgotPasswordController=async(req,res)=>{
+ try {
+   
+
+    // Chercher l'utilisateur
+    const user = await User.findById({_id:req.body.id});
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User  not exist",
+      });
+    }
+    const {oldPassword,newPassword}=req.body
+     if (!oldPassword || !newPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Old password and new password are required",
+      });
+    }
+     // Vérifier que l'ancien mot de passe correspond
+    const isMatch = await bcrypt.compare(oldPassword, user.password);
+    if (!isMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Old password is incorrect",
+      });
+    }
+     // Hasher le nouveau mot de passe
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+     // Mettre à jour le mot de passe
+    user.password = hashedPassword;
+    await user.save();
+    res.status(200).json({
+      success: true,
+      message: "Password updated successfully",
+    });
+    
+  } catch (error) {
+     console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Error in password reset API.",
+      error: error.message
+    });
+    
+  }
+}
 
 module.exports = {
   registerController,
   loginController,
- ResetPasswordController
+ ResetPasswordController,
+ ForgotPasswordController
 };
