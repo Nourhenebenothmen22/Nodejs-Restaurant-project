@@ -1,75 +1,55 @@
-🍽️ Restaurant Management API – Backend System
-Un système backend complet pour la gestion d’un restaurant, offrant une API RESTful sécurisée pour gérer utilisateurs, rôles, restaurants, catégories, mobilier et opérations administratives.
+🍽️ Système Backend d'API de Gestion de Restaurants
+Une API RESTful sécurisée complète pour administrer utilisateurs, restaurants, catégories, mobilier et opérations.
 
-🚀 Fonctionnalités Clés
-🔐 Authentification sécurisée avec JWT et bcrypt
+🚀 Fonctionnalités Principales
+| Catégorie       | Détails                                                                   |
+| --------------- | ------------------------------------------------------------------------- |
+| 🔐 Sécurité     | Authentification JWT + bcrypt, protection avec Helmet & CORS              |
+| 👥 Rôles        | Gestion fine des accès (Admin, Vendor, Client, Driver)                    |
+| 🗃️ Données     | CRUD complet pour Restaurants, Catégories et Mobilier                     |
+| ⚙️ Qualité      | Validation des entrées avec express-validator, journalisation avec Morgan |
+| 🛠️ Maintenance | Architecture modulaire + arrêt propre du serveur via endpoint sécurisé    |
 
-👥 Gestion des utilisateurs avec rôles (admin, vendor, client, driver)
+🛠️ Stack Technique
+Backend
+Node.js v22.12.0 • Express 4.x • EJS (templates)
 
-🍴 Gestion complète CRUD des restaurants
+Base de Données
+MongoDB • Mongoose ODM
 
-🗂️ Gestion complète CRUD des catégories (Category)
+Sécurité
+JWT • bcrypt • Helmet • CORS • express-validator
 
-📊 Validation robuste des entrées avec express-validator
+Outils
+Morgan (logs) • Dotenv (config)
 
-🛡️ Sécurité HTTP grâce à Helmet et CORS
 
-📈 Journalisation des requêtes HTTP avec Morgan
+📁 Structure du Projet
+restaurant-api/
+├── config/           # Configuration DB et variables d'environnement
+├── controllers/      # Logique métier (users, restaurants, categories...)
+├── middleware/       # Auth, validation des rôles, gestion d'erreurs
+├── models/           # Schémas Mongoose (User.js, Restaurant.js...)
+├── routes/           # Définition des endpoints API
+├── validators/       # Règles de validation des données
+├── views/            # Templates EJS (optionnel)
+├── .env.example      # Modèle de configuration
+├── package.json
+└── server.js         # Point d'entrée
 
-🛌 Arrêt propre du serveur via endpoint protégé
+⚙️ Prérequis d'Installation
+Node.js ≥ v18
 
-⚙️ Configuration centralisée via fichier .env
-
-🧹 Architecture modulaire, facile à maintenir
-
-🛠️ Technologies Utilisées
-
-| Composant        | Technologie                     |
-| ---------------- | ------------------------------- |
-| Backend          | Node.js v22.12.0, Express 4.x   |
-| Base de données  | MongoDB + Mongoose ODM          |
-| Authentification | JWT, bcrypt                     |
-| Sécurité         | Helmet, CORS, express-validator |
-| Journalisation   | Morgan                          |
-| Templates        | EJS (pour vues si besoin)       |
-| Middleware       | Authentification + validation   |
-
-📁 Structure du Projet restaurant-api/
-
-├── config/              # Connexion DB, gestion .env
-├── controllers/         # Logique métier (inclut categoryController.js, restaurantController.js)
-├── middleware/          # Auth, validation, protection
-├── models/              # Schémas Mongoose (User, Category, Restaurant, etc.)
-├── routes/              # Routes Express (inclut categoryRoute.js, restaurantRoute.js)
-├── validators/          # Règles express-validator
-├── views/               # Templates EJS (optionnel)
-├── .env.example         # Exemple de configuration
-├── package.json         # Dépendances et scripts
-└── server.js            # Point d’entrée principal
-
-📁 Structure du Projet 
-├── config/              # Connexion DB, gestion .env
-├── controllers/         # Logique métier (inclut categoryController.js, restaurantController.js)
-├── middleware/          # Auth, validation, protection
-├── models/              # Schémas Mongoose (User, Category, Restaurant, etc.)
-├── routes/              # Routes Express (inclut categoryRoute.js, restaurantRoute.js)
-├── validators/          # Règles express-validator
-├── views/               # Templates EJS (optionnel)
-├── .env.example         # Exemple de configuration
-├── package.json         # Dépendances et scripts
-└── server.js            # Point d’entrée principal
-
-⚙️ Prérequis
-Node.js v18+
-
-MongoDB (local ou Atlas)
+MongoDB (local ou cluster Atlas)
 
 Git
 
-Postman (ou équivalent)
-
+Postman / Insomnia (tests d'API)
 
 📬 Contact
-Développé par Nourhen Ben Othmen
-Pour questions ou suggestions, n’hésitez pas à ouvrir une issue sur le dépôt GitHub !
+Développeur : Nourhen Ben Othmen
+Contributions : Issues GitHub bienvenues !
+
+« Un backend robuste pour orchestrer l'expérience culinaire de A à Z. »
+
 
