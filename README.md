@@ -1,10 +1,14 @@
 🍽️ Restaurant Management API – Backend System
-Un système backend complet pour la gestion d’un restaurant, offrant une API RESTful sécurisée pour gérer utilisateurs, rôles, mobilier et opérations administratives.
+Un système backend complet pour la gestion d’un restaurant, offrant une API RESTful sécurisée pour gérer utilisateurs, rôles, restaurants, catégories, mobilier et opérations administratives.
 
 🚀 Fonctionnalités Clés
 🔐 Authentification sécurisée avec JWT et bcrypt
 
 👥 Gestion des utilisateurs avec rôles (admin, vendor, client, driver)
+
+🍴 Gestion complète CRUD des restaurants
+
+🗂️ Gestion complète CRUD des catégories (Category)
 
 📊 Validation robuste des entrées avec express-validator
 
@@ -19,6 +23,7 @@ Un système backend complet pour la gestion d’un restaurant, offrant une API R
 🧹 Architecture modulaire, facile à maintenir
 
 🛠️ Technologies Utilisées
+
 | Composant        | Technologie                     |
 | ---------------- | ------------------------------- |
 | Backend          | Node.js v22.12.0, Express 4.x   |
@@ -29,18 +34,31 @@ Un système backend complet pour la gestion d’un restaurant, offrant une API R
 | Templates        | EJS (pour vues si besoin)       |
 | Middleware       | Authentification + validation   |
 
-📁 Structure du Projet
-restaurant-api/
-├── config/           # Connexion DB, gestion .env
-├── controllers/      # Logique métier
-├── middleware/       # Auth, validation, protection
-├── models/           # Schémas Mongoose (User, etc.)
-├── routes/           # Routes Express
-├── validators/       # Règles express-validator
-├── views/            # Templates EJS (optionnel)
-├── .env.example      # Exemple de configuration
-├── package.json      # Dépendances et scripts
-└── server.js         # Point d’entrée principal
+📁 Structure du Projet restaurant-api/
+
+├── config/              # Connexion DB, gestion .env
+├── controllers/         # Logique métier (inclut categoryController.js, restaurantController.js)
+├── middleware/          # Auth, validation, protection
+├── models/              # Schémas Mongoose (User, Category, Restaurant, etc.)
+├── routes/              # Routes Express (inclut categoryRoute.js, restaurantRoute.js)
+├── validators/          # Règles express-validator
+├── views/               # Templates EJS (optionnel)
+├── .env.example         # Exemple de configuration
+├── package.json         # Dépendances et scripts
+└── server.js            # Point d’entrée principal
+
+📁 Structure du Projet 
+├── config/              # Connexion DB, gestion .env
+├── controllers/         # Logique métier (inclut categoryController.js, restaurantController.js)
+├── middleware/          # Auth, validation, protection
+├── models/              # Schémas Mongoose (User, Category, Restaurant, etc.)
+├── routes/              # Routes Express (inclut categoryRoute.js, restaurantRoute.js)
+├── validators/          # Règles express-validator
+├── views/               # Templates EJS (optionnel)
+├── .env.example         # Exemple de configuration
+├── package.json         # Dépendances et scripts
+└── server.js            # Point d’entrée principal
+
 ⚙️ Prérequis
 Node.js v18+
 
@@ -50,27 +68,8 @@ Git
 
 Postman (ou équivalent)
 
-🧪 Installation & Configuration
-Cloner le dépôt :
 
-
-Installer les dépendances :
-
-npm install
-
-Configurer l’environnement : .env
-Modifier .env avec les valeurs :
-
- PORT=5000
- 
- MONGO_ENV=mongodb+srv://benothmennourhen8:SjQ71m4Fii0OCxPw@cluster0.awoz3hx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
- JWT_SECRET=mysecretvalue
- JWT_EXPIRES_IN = 1h
-
-Démarrer le serveur :
-npm start
-# ou en mode développement :
-npm run dev
 📬 Contact
 Développé par Nourhen Ben Othmen
 Pour questions ou suggestions, n’hésitez pas à ouvrir une issue sur le dépôt GitHub !
+
