@@ -31,6 +31,9 @@ app.use("/api/auth", authRoute);
 const userRoute = require('./routes/userRoute');
 app.use('/api', userRoute);
 
+const restaurantRoute=require('./routes/resaturantRoute')
+app.use('/api/restaurant',restaurantRoute);
+
 // Récupérer le port depuis .env
 const PORT = process.env.PORT || 5000;
 
